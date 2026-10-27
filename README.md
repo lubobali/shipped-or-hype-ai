@@ -91,9 +91,18 @@ can only `SELECT` those columns.
 
 ## Cost
 
-One model call per transcribed episode plus one for the email: about **$0.25 a week** with
-Claude Sonnet 5.5 through OpenRouter (2 podcast episodes, ~80 items). Give the key its own monthly
-limit; when it's hit you get the links-only email, not a bill.
+Measured on a real run (week 44, 2026, Claude Sonnet 5.5 through OpenRouter, 80 items, 2 podcast
+episodes):
+
+| Call | Tokens in | Tokens out | Cost |
+|---|---|---|---|
+| Podcast episode 1 → claims | 45,203 | 545 | $0.096 |
+| Podcast episode 2 → claims | 37,032 | 560 | $0.080 |
+| The email | 15,690 | 2,925 | $0.061 |
+| **Total** | **97,925** | **4,030** | **$0.24** |
+
+So about **$1 a month**. Most of it is reading the full transcripts; without them a run is about
+$0.06. Give the key its own monthly limit; when it's hit you get the links-only email, not a bill.
 
 ## Tests
 
