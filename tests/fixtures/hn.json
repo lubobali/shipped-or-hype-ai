@@ -1,0 +1,6 @@
+{"hits": [
+  {"title": "DeepInfer: inference framework for DeepSeek models", "url": "https://github.com/deepseek-ai/DeepInfer", "points": 2351, "created_at": "2026-10-20T09:08:54Z", "objectID": "50163277"},
+  {"title": "Ask HN: Show me your LLM agent setup", "url": null, "points": 420, "created_at": "2026-10-22T12:00:00Z", "objectID": "50200000"},
+  {"title": "A history of the bicycle", "url": "https://example.com/bikes", "points": 900, "created_at": "2026-10-21T12:00:00Z", "objectID": "50100000"},
+  {"title": "Claude gets a new memory API", "url": "https://example.com/claude", "points": 120, "created_at": "2026-10-23T12:00:00Z", "objectID": "50300000"}
+]}

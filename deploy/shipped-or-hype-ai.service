@@ -1,0 +1,42 @@
+# Example systemd unit. Adjust the paths and user, then:
+#   cp deploy/shipped-or-hype-ai.* /etc/systemd/system/
+#   systemctl daemon-reload && systemctl enable --now shipped-or-hype-ai.timer
+# Manual run (really sends): systemctl start shipped-or-hype-ai
+[Unit]
+Description=Shipped or hype: weekly AI news email
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+# A system user with no shell: useradd --system --user-group --shell /usr/sbin/nologin radar
+User=radar
+Group=radar
+WorkingDirectory=/opt/shipped-or-hype-ai
+# Root-only (chmod 600) copy of .env.example. systemd reads it before dropping to the user.
+EnvironmentFile=/etc/shipped-or-hype-ai.env
+Environment=RADAR_STATE_DIR=/var/lib/shipped-or-hype-ai PYTHONUNBUFFERED=1
+StateDirectory=shipped-or-hype-ai
+ExecStart=/usr/bin/python3 -m radar.main
+TimeoutStartSec=30min
+MemoryMax=512M
+
+# Read-only everywhere except its own state folder.
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+NoNewPrivileges=yes
+RestrictSUIDSGID=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+LockPersonality=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+SystemCallArchitectures=native

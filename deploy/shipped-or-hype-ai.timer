@@ -1,0 +1,11 @@
+# Every Sunday evening, so the email is waiting Monday morning.
+# Persistent: a run missed while the machine was off starts after boot.
+[Unit]
+Description=Shipped or hype: weekly AI news email, Sunday 20:00
+
+[Timer]
+OnCalendar=Sun *-*-* 20:00 America/Chicago
+Persistent=true
+
+[Install]
+WantedBy=timers.target

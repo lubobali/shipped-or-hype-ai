@@ -1,0 +1,92 @@
+# The feeds the radar reads. Edit freely: add, remove, change the trust level.
+#
+# trust — how the email treats an item:
+#   primary  = official release notes: what really shipped (ground truth)
+#   builder  = people who test things hands-on
+#   research = papers, months early
+#   opinion  = big-picture talk; claims are "unverified" until a primary
+#              or builder item backs them
+# format: feed (RSS/Atom) | hf_papers (HF API, by week) | hn (Algolia, by date)
+# min_score: upvotes / points floor. max_items: newest N per source per week.
+
+sources:
+  - id: claude-platform
+    name: Claude Platform release notes
+    url: https://platform.claude.com/docs/en/release-notes/feed.xml
+    format: feed
+    trust: primary
+
+  - id: claude-code
+    name: Claude Code releases
+    url: https://github.com/anthropics/claude-code/releases.atom
+    format: feed
+    trust: primary
+    max_items: 5
+
+  - id: openai
+    name: OpenAI news
+    url: https://openai.com/news/rss.xml
+    format: feed
+    trust: primary
+
+  - id: nvidia-dev
+    name: NVIDIA developer blog
+    url: https://developer.nvidia.com/blog/feed
+    format: feed
+    trust: primary
+    max_items: 8
+
+  - id: simon-willison
+    name: Simon Willison
+    url: https://simonwillison.net/atom/everything/
+    format: feed
+    trust: builder
+    max_items: 20
+
+  - id: latent-space
+    name: Latent Space
+    url: https://www.latent.space/feed
+    format: feed
+    trust: builder
+
+  - id: interconnects
+    name: Interconnects
+    url: https://www.interconnects.ai/feed
+    format: feed
+    trust: builder
+
+  - id: hacker-news
+    name: Hacker News
+    url: https://hn.algolia.com/api/v1/search
+    format: hn
+    trust: builder
+    min_score: 300
+    max_items: 10
+
+  - id: import-ai
+    name: Import AI
+    url: https://importai.substack.com/feed
+    format: feed
+    trust: research
+
+  - id: hf-papers
+    name: Hugging Face papers
+    url: https://huggingface.co/api/daily_papers
+    format: hf_papers
+    trust: research
+    min_score: 50
+    max_items: 10
+
+  - id: moonshots
+    name: Moonshots (Diamandis)
+    url: https://feeds.megaphone.fm/DVVTS2890392624
+    format: feed
+    trust: opinion
+    max_items: 2
+
+  - id: dwarkesh
+    name: Dwarkesh Podcast
+    url: https://api.substack.com/feed/podcast/69345.rss
+    format: feed
+    trust: opinion
+    max_items: 2

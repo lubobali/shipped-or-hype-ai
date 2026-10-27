@@ -1,0 +1,6 @@
+# One file for the box, CI and local runs.
+PyYAML==6.0.3
+defusedxml==0.7.1
+psycopg[binary]==3.3.6
+pytest==9.0.2
+ruff==0.15.5

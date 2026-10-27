@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sample Atom</title>
+  <entry>
+    <title>Trying the new agent SDK</title>
+    <link href="https://example.org/2026/Oct/25/agent-sdk/" rel="alternate"/>
+    <link href="https://example.org/comments" rel="replies"/>
+    <published>2026-10-25T18:30:00+00:00</published>
+    <updated>2026-10-25T19:00:00+00:00</updated>
+    <summary type="html">&lt;p&gt;I tested it on a real repo.&lt;/p&gt;</summary>
+  </entry>
+  <entry>
+    <title>Release v2.1.0</title>
+    <link href="https://example.org/releases/v2.1.0"/>
+    <updated>2026-10-24T08:00:00Z</updated>
+    <content type="html">&lt;ul&gt;&lt;li&gt;Faster tools&lt;/li&gt;&lt;/ul&gt;</content>
+  </entry>
+</feed>
